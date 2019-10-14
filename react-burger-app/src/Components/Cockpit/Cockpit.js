@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = props => {
+  const toggleBtnRef = useRef();
+
   useEffect(() => {
     console.log('[Cockpit.js] useEffect');
     //http requests can go here...
@@ -39,7 +41,8 @@ const cockpit = props => {
           <p className={assignedClasses.join( ' ' )}>This is really working!</p>
             <button
                 className={btnClass}
-                onClick={props.clicked}>Toggle Persons</button>
+                onClick={props.clicked}>Toggle Persons
+            </button>
         </div>
     );
 }
