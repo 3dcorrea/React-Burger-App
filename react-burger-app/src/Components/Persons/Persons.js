@@ -27,7 +27,7 @@ class Persons extends PureComponent {
     //         return false;
     //     }
     //     //return true;
-    // }
+    // } This is replaced by PureComponent b/c it has this method baked-in.
  
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('[Persons.js] getSnapshotBeforeUpdate');

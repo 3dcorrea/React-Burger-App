@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import classes from './App.css';
 import Persons from '../Components/Persons/Persons';
@@ -8,7 +8,7 @@ import Aux from '../hoc/Auxx';
 
 // import { threadId } from 'worker_threads';
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -39,10 +39,10 @@ class App extends Component {
     console.log('[App.js] componentDidMount');
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('[App.js] shouldComponentUpdate');
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('[App.js] shouldComponentUpdate');
+  //   return true;
+  // }
 
   componentDidUpdate() {
     console.log('[App.js] componentDidUpdate');
