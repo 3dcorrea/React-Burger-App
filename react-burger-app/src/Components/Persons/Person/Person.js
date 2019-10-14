@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Aux from '../../../hoc/Auxx';
 import withClass from '../../../hoc/withClass';
 import classes from './Person.css';
+import AuthContext from '../../../context/auth-context';
 
 class Person extends PureComponent {
     constructor(props) {
@@ -15,26 +16,38 @@ class Person extends PureComponent {
         this.inputElementRef.current.focus();
     }
 
-    render(){
+    render() {
         console.log('[Person.js] rendering...');
         return (
             <Aux>
-                {this.props.isAuth ? <p>Authenticated</p> : <p>Please Log In</p>}
-            <p key='i1' onClick={this.props.click}>
-                I'm {this.props.name} and I am {this.props.age} years old!
-            </p>
-            <p  key='i2'>{this.props.children}</p>
+                <AuthContext.Consumer>
+                    {context =>
+                        context.authenticated ?
+                            <p>Authenticated!</p> :
+                            <p>Please Log In</p>
+                    }
+                </AuthContext.Consumer>
+                <p
+                    key='i1'
+                    onClick={this.props.click}
+                >
+                    I'm {this.props.name} and I am {this.props.age} years old!
+                </p>
+                <p
+                    key='i2'>{this.props.children}
+                </p>
                 <input
-                key="i3"
-                ref={this.inputElementRef}
-                type="text"
-                onChange={this.props.changed}
-                value={this.props.name}
+                    key="i3"
+                    ref={this.inputElementRef}
+                    type="text"
+                    onChange={this.props.changed}
+                    value={this.props.name}
                 />
-             </Aux>
+            </Aux>
         );
     }
-};
+}
+
 
 Person.propTypes = {
     click: PropTypes.func,

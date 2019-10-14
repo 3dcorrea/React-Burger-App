@@ -112,14 +112,18 @@ class App extends PureComponent {
         }}>
           Remove Cockpit
         </button>
-        <AuthContext.Provider>
+          <AuthContext.Provider
+            value={{
+              authenticated: this.state.authenticated,
+              login: this.loginHandler
+            }}
+          >
           {this.state.showCockpit ? (
             <Cockpit
               title={this.props.appTitle}
               showPersons={this.state.showPersons}
               personsLength={this.state.persons.length}
               clicked={this.togglePersonsHandler}
-              login={this.loginHandler}
             />
           ) : null}
             {persons}
