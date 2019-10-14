@@ -42,7 +42,7 @@ class App extends PureComponent {
   // shouldComponentUpdate(nextProps, nextState) {
   //   console.log('[App.js] shouldComponentUpdate');
   //   return true;
-  // }
+  // } obsolete- using PureComponent
 
   componentDidUpdate() {
     console.log('[App.js] componentDidUpdate');
